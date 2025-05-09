@@ -1,0 +1,27 @@
+name: Hello GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+    workflow_dispatch:
+      inputs:
+        username:
+          description: "enter the name"
+          required: true
+          default: "nikhil"
+        age:
+          description: "enter the age"
+          requireed: true
+          default: '28'    
+
+jobs:
+  user-input:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: print user inputs        
+        run: |
+          echo "hello this is, ${{github.event.inputs.username}}"
+          echo "my age is, ${{github.event.inputs.age}} old!!"
+
