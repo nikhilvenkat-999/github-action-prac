@@ -10,11 +10,11 @@ on:
         username:
           description: "enter the name"
           required: true
-          default: "Nikhil"
+          
         age:
           description: "enter the age"
           required: true
-          default: '28'
+          
               
 
 jobs:
