@@ -1,1 +1,1 @@
-echo "this is testing purpose"
+echo "this is testing"
