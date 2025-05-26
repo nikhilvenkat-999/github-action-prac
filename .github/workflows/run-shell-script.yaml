@@ -20,11 +20,11 @@ jobs:
       
       - name: run shell script
         run: |
-          chmod +x ./test.sh
-          ./test.sh
+          chmod +x ./Nikhil/test.sh
+          ./Nikhil/test.sh
           
-          chmod +x ./ignore.sh
-          ./ignore.sh    
+          chmod +x ./Nikhil/ignore.sh
+          ./Nikhil/ignore.sh    
       
   
 
