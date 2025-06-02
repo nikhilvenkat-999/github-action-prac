@@ -1,0 +1,16 @@
+name: check current date
+on:
+  workflow_call:
+
+jobs:
+  print-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: showing current date & time
+        run: date
+        
+    
+  
