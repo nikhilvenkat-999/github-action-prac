@@ -34,8 +34,8 @@ jobs:
         run: |
           echo "first number: ${{ inputs.number01 }}"
           echo "second number: ${{ inputs.number02 }"
-          sum=${{ inputs.number01 }} + ${{ inputs.number02 }
-          echo "sum: $sum"
+          sum=$(( ${{ inputs.number01 }} + ${{ inputs.number02 }} ))
+          echo "sum is $sum"
         
         
 
