@@ -28,12 +28,12 @@ on:
 
 jobs:
   adding-two-numbers:
-    runs-on: ubuntu--latest
+    runs-on: ubuntu-latest
     steps:
       - name: adding two numbers
         run: |
           echo "first number: ${{ inputs.number01 }}"
-          echo "second number: ${{ inputs.number02 }"
+          echo "second number: ${{ inputs.number02 }}"
           sum=$(( ${{ inputs.number01 }} + ${{ inputs.number02 }} ))
           echo "sum is $sum"
         
