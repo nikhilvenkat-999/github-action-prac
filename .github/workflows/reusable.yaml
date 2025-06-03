@@ -1,15 +1,45 @@
-name: check current date
+# name: check current date
+# on:
+#   workflow_call:
+
+# jobs:
+#   print-date:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: showing current date & time
+#         run: date
+
+
+name: Adding two numbers
 on:
   workflow_call:
+    inputs:
+      number01:
+        description: 'first num'
+        required: true
+        type: number
+      number02:
+        description: 'second num'
+        required: true
+        type: number
 
 jobs:
-  print-date:
-    runs-on: ubuntu-latest
+  adding-two-numbers:
+    runs-on: ubuntu--latest
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v4
+      - name: adding two numbers
+        run: |
+          echo "first number: ${{ inputs.number01 }}"
+          echo "second number: ${{ inputs.number02 }"
+          sum=${{ inputs.number01 }} + ${{ inputs.number02 }
+          echo "sum: $sum"
+        
+        
 
-      - name: showing current date & time
-        run: date
+
+        
     
   
