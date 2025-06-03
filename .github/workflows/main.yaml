@@ -20,5 +20,5 @@ jobs:
   calling-adding-workflow:
     uses: ./.github/workflows/reusable.yaml
     with:
-      number01: 10
-      number02: 30
+      number01: 100
+      number02: 300
