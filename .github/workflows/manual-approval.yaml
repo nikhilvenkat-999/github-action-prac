@@ -1,0 +1,33 @@
+name: Deploy process workflow using manual approval approach
+run-name: manual approval workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: build the application
+        run: echo "this step is building the app"
+
+  test-job:
+    runs-on: ubuntu-latest
+    environment:
+      name: build-job
+    steps:
+      - name:  test the application
+        run: echo " test the application"
+
+  deploy-job:
+    runs-on: ubuntu-latest
+    environment:
+      name: test-job
+    steps:
+      - name: deploy the application
+        run: echo "deploy the application"                  
