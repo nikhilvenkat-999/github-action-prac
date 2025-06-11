@@ -36,7 +36,7 @@ jobs:
           java-version: '17'
 
       - name: Install Maven
-        run: sudo apt-get update && sudo apt-get install -y maven    
+        run: sudo apt-get update && sudo apt-get install -y maven
 
       - name: Build the maven (PMT) skip test cases
         run: mvn clean package -DskipTests
