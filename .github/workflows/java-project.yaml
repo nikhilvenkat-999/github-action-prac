@@ -1,0 +1,50 @@
+name: whole pipeline java project from install , build, test, deploy a java application
+run-name: java pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  install-job:
+    runs-on: self-hosted
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup java 17 to run the code
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+  build-job:
+    runs-on: self-hosted
+    needs: install-job
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup java 17 version to run the code
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build the maven (PMT) skip test cases
+        run: mvn clean package -DskipTests
+
+      - name: list all the files in target directory
+        run: ls -la target/
+
+      - name: Upload Build artifacts as WAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-app-war
+          path: target/welcome-message-1.0-SNAPSHOT.war       
+
+      
