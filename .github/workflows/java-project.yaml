@@ -35,16 +35,19 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build the maven (PMT) skip test cases
-        run: mvn clean package -DskipTests
+      - name: Install Maven
+        run: sudo apt-get update && sudo apt-get install -y maven    
 
-      - name: list all the files in target directory
-        run: ls -la target/
+      # - name: Build the maven (PMT) skip test cases
+      #   run: mvn clean package -DskipTests
 
-      - name: Upload Build artifacts as WAR
-        uses: actions/upload-artifact@v4
-        with:
-          name: java-app-war
-          path: target/welcome-message-1.0-SNAPSHOT.war       
+      # - name: list all the files in target directory
+      #   run: ls -la target/
+
+      # - name: Upload Build artifacts as WAR
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: java-app-war
+      #     path: target/welcome-message-1.0-SNAPSHOT.war       
 
       
