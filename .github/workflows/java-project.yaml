@@ -80,7 +80,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: test-job
     steps:
-      
       - name: code checkout
         uses: actions/checkout@v4
         with:
@@ -117,12 +116,12 @@ jobs:
           path: jacoco-report
 
       - name: List all the content from Jacoco report
-        runs: ls -R jacoco-report
+        run: ls -R jacoco-report
 
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        runs: |
+        run: |
           ## the below command is to install the sonarscanner inside runner.
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.login=$SONAR_TOKEN \
